@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-import matplotlib.pyplot as plt
+
 
 # Carrega o DataFrame
 @st.cache_data #cache data to improve performance
@@ -74,9 +74,29 @@ def apply_filters(dataframe):
 
 # Função para criar o gráfico de custo de mensalidade por universidade
 def create_tuition_bar_chart(df_filtered):
-    fig_tuition = px.bar(df_filtered, x='Name', y='Minimum Tuition cost', title='Custo de Mensalidade por Universidade')
+    """Cria um gráfico de barras do custo de mensalidade por universidade,
+    com cores indicando se o custo está acima ou abaixo da média."""
+
+    # Calcula a média do custo de mensalidade
+    media_mensalidade = df_filtered['Minimum Tuition cost'].mean()
+
+    # Cria uma coluna de cores com base na média
+    df_filtered['Cor'] = df_filtered['Minimum Tuition cost'].apply(
+        lambda x: 'Acima da Média' if x > media_mensalidade else 'Abaixo da Média'
+    )
+# Cria o gráfico de barras com cores
+    fig_tuition = px.bar(
+        df_filtered,
+        x='Name',
+        y='Minimum Tuition cost',
+        color='Cor',  # Usa a coluna de cores
+        title='Custo de Mensalidade por Universidade (Média: {:.2f})'.format(media_mensalidade),
+        color_discrete_map={'Acima da Média': 'red', 'Abaixo da Média': 'blue'}  # Define as cores
+    )
+
     return fig_tuition
 
+  
 # Função para criar o gráfico de relação aluno/professor
 def create_students_teachers_scatter_chart(df_filtered):
     fig_students_teachers = px.scatter(df_filtered, x='Number of Students', y='Academic Staff', title='Relação entre Número de Alunos e Corpo Docente')
