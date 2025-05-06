@@ -1,7 +1,7 @@
 # Análise de Universidades da América do Norte
 
 Este projeto realiza uma análise exploratória de dados sobre universidades nos Estados Unidos e Canadá, utilizando Python, Pandas, Plotly Express e Streamlit. O objetivo é fornecer insights sobre o custo de mensalidades, número de alunos, corpo docente e outros fatores relevantes, permitindo comparações e visualizações interativas.
-
+## **Acesse o Dashboard Interativo:** [https://mpexpxu7fweqgknmhrpjge.streamlit.app/](https://mpexpxu7fweqgknmhrpjge.streamlit.app/)
 ## Visão Geral
 
 O projeto consiste em duas partes principais:
@@ -16,6 +16,12 @@ O projeto consiste em duas partes principais:
     * Permite aos usuários filtrar os dados por país, número de alunos e custo de mensalidade.
     * Apresenta visualizações como gráficos de barras, dispersão e linhas, utilizando Plotly Express.
     * Inclui uma tabela interativa para explorar os dados em detalhes.
+
+## Aqui estão alguns dos gráficos gerados pela aplicação:
+![Screenshot dos Gráficos da Análise de Universidades](https://github.com/user-attachments/assets/37fd97d2-2af2-4ef5-aee9-783ae0e72fd1)
+
+## A tabela permite visualizar os dados brutos com filtros aplicados:
+![Screenshot da Tabela Interativa do Dashboard](https://github.com/user-attachments/assets/ba7ea0be-7146-4933-9c46-c3592271de39)
 
 ## Funcionalidades
 
